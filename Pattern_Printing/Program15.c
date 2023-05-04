@@ -2,7 +2,7 @@
 /*
 	Input 	: 	Rows = 4, Column = 4;
 
-	Output	:	*	#	*	#
+	Output	:	*	#	*	#	*
 				2	2	2	2
 				*	#	*	#
 				4	4	4	4
@@ -20,7 +20,14 @@ void Display(int iRow, int iCol)
 		{
 			if((i % 2) != 0)
 			{
-				printf("*\t");
+				if(j % 2 != 0)
+				{
+					printf("*\t");
+				}
+				else
+				{
+					printf("#\t");	
+				}
 			}
 			else
 			{
