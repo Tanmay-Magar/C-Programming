@@ -5,32 +5,46 @@
 
 bool ChkArmStr(int iNo)
 {
-	int iDigit = 0;
-	int Temp = iNo;
-	int iSum = 0;
+    int iDigitCount = 0;
+    int iTemp = iNo;
+    int iDigit = 0;
+    int iCnt = 0;
+    int iPower = 1;
+    int iSum = 0;
 
-	if(Temp < 0)
-	{
-		Temp = -Temp;
-	}
+    while(iTemp != 0)
+    {
+        iDigitCount++;
 
-	while(Temp != 0)
-	{
-		iDigit = Temp % 10;
+        iTemp = iTemp / 10;
+    }
 
-		iSum = iSum + (iDigit * iDigit * iDigit);
+    iTemp = iNo;
 
-		Temp = Temp / 10;
-	}
+    while(iTemp != 0)
+    {
+        iDigit = iTemp % 10;
 
-	if(iSum == iNo)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+        for(iCnt = 1; iCnt <= iDigitCount; iCnt++)
+        {
+            iPower = iPower * iDigit;
+        }
+
+        iSum = iSum + iPower;
+
+        iPower = 1;
+
+        iTemp = iTemp / 10;
+    }
+
+    if(iSum == iNo)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 int main()
